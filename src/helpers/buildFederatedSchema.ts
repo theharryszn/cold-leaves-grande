@@ -1,11 +1,11 @@
-import { printSchema, specifiedDirectives } from "graphql";
+import { printSchema,  } from "graphql";
 import gql from "graphql-tag";
 import {
   buildFederatedSchema as buildApolloFederationSchema,
 } from "@apollo/federation";
 import { addResolversToSchema, GraphQLResolverMap } from "apollo-graphql";
 import { buildSchema, BuildSchemaOptions, createResolversMap } from "type-graphql";
-import { federationDirectives } from "@apollo/subgraph/dist/directives";
+// import { federationDirectives } from "@apollo/subgraph/dist/directives";
 
 export async function buildFederatedSchema(
   options: Omit<BuildSchemaOptions, "skipCheck">,
@@ -13,7 +13,7 @@ export async function buildFederatedSchema(
 ) {
   const schema = await buildSchema({
     ...options,
-    directives: [...specifiedDirectives, ...federationDirectives, ...(options.directives || [])],
+    // directives: [...specifiedDirectives, ...federationDirectives, ...(options.directives || [])],
     skipCheck: true,
   });
 

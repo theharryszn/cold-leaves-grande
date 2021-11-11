@@ -10,7 +10,7 @@ export * from "./product.resolver"
 export async function init() {
     return await listen({
         name : "user",
-        port : parseInt(`${PORT}`) + 1,
+        port : parseInt(`${PORT}`) + 2,
         orphanedTypes : [Product],
         resolvers : [ProductResolver]
     },{ __resolveReference: resolveProductReference })
