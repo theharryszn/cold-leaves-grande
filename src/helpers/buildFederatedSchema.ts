@@ -5,6 +5,7 @@ import {
 } from "@apollo/federation";
 import { addResolversToSchema, GraphQLResolverMap } from "apollo-graphql";
 import { buildSchema, BuildSchemaOptions, createResolversMap } from "type-graphql";
+import Container from "typedi";
 // import { federationDirectives } from "@apollo/subgraph/dist/directives";
 
 export async function buildFederatedSchema(
@@ -13,6 +14,7 @@ export async function buildFederatedSchema(
 ) {
   const schema = await buildSchema({
     ...options,
+    container : Container,
     // directives: [...specifiedDirectives, ...federationDirectives, ...(options.directives || [])],
     skipCheck: true,
   });

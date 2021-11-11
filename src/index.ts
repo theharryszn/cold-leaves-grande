@@ -2,6 +2,7 @@ import "reflect-metadata"
 import "dotenv/config"
 import { ApolloGateway } from "@apollo/gateway";
 import * as User from"./graphs/user";
+import * as Product from"./graphs/products";
 import { ApolloServer } from "apollo-server";
 import { PORT } from "./config";
 import { createConnection } from "typeorm";
@@ -23,7 +24,8 @@ async function bootstrap() {
     });
 
     const serviceList = [
-      { name: "accounts", url: await User.init() },
+      { name: "user", url: await User.init() },
+      { name: "product", url: await Product.init() },
     ];
   
     const gateway = new ApolloGateway({

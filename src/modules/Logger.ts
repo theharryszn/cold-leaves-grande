@@ -3,7 +3,7 @@ import { blue, greenBright, red, yellowBright } from 'chalk'
 export class Logger {
     /** For Info Messages  */ 
     static info(...args: any[]) {
-        console.log(blue("[INFO]: "), args)
+        console.log(blue("[INFO]: "), ...args)
     }
 
     /** For Error Messages */
